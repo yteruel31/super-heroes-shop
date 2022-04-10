@@ -31,21 +31,21 @@ model User {
 }
 
 model Comic {
-  id               Int              @id @default(autoincrement())
-  idMarvelApi      Int
-  title            String
-  thumbnail        String
-  price            Float
-  rating           Float
-  avaibilityStatus AvaibilityStatus
-  serie            Serie            @relation(fields: [serieId], references: [id])
-  characters       Character[]
-  createdAt        DateTime         @default(now())
-  updatedAt        DateTime         @updatedAt
-  serieId          Int
-  carts            Cart[]
-  orders           Order[]
-  reviews          Review[]
+  id                 Int                @id @default(autoincrement())
+  idMarvelApi        Int
+  title              String
+  thumbnail          String
+  price              Float
+  rating             Float
+  availabilityStatus AvailabilityStatus
+  serie              Serie              @relation(fields: [serieId], references: [id])
+  characters         Character[]
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  serieId            Int
+  carts              Cart[]
+  orders             Order[]
+  reviews            Review[]
 }
 
 model Serie {
@@ -147,7 +147,7 @@ enum Role {
   ADMIN
 }
 
-enum AvaibilityStatus {
+enum AvailabilityStatus {
   IN_STOCK
   OUT_OF_STOCK
 }

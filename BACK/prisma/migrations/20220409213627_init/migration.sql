@@ -2,7 +2,7 @@
 CREATE TYPE "Role" AS ENUM ('USER', 'ADMIN');
 
 -- CreateEnum
-CREATE TYPE "AvaibilityStatus" AS ENUM ('IN_STOCK', 'OUT_OF_STOCK');
+CREATE TYPE "AvailabilityStatus" AS ENUM ('IN_STOCK', 'OUT_OF_STOCK');
 
 -- CreateEnum
 CREATE TYPE "Step" AS ENUM ('VALIDATE');
@@ -35,7 +35,7 @@ CREATE TABLE "Comic" (
     "thumbnail" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL,
-    "avaibilityStatus" "AvaibilityStatus" NOT NULL,
+    "availabilityStatus" "AvailabilityStatus" NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "serieId" INTEGER NOT NULL,
