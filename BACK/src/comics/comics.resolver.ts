@@ -2,6 +2,7 @@ import {Resolver, Args, Mutation, Query} from "@nestjs/graphql";
 import {ComicsService} from "./comics.service";
 import {ComicsArg} from "./dto/comics.arg";
 import {NewComicInput} from "./dto/new-comic.input";
+import {UpdateComicInput} from "./dto/update-comic.input";
 import {PaginatedComic} from "./models/paginatedComic";
 import {Comic} from "./models/comic.model";
 
@@ -23,5 +24,10 @@ export class ComicsResolver {
     @Mutation(returns => Comic)
     async addComic(@Args("newComicData") newComicData: NewComicInput) {
         return this.comicsService.create(newComicData);
+    }
+
+    @Mutation(returns => Comic)
+    async updateComic(@Args("updateComicData") updateComicData: UpdateComicInput) {
+        return this.comicsService.update(updateComicData);
     }
 }

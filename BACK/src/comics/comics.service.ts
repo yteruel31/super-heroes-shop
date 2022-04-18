@@ -6,6 +6,7 @@ import {SeriesService} from "../series/series.service";
 import {getResourceId} from "../utils";
 import {ComicsArg} from "./dto/comics.arg";
 import {NewComicInput} from "./dto/new-comic.input";
+import {UpdateComicInput} from "./dto/update-comic.input";
 
 @Injectable()
 export class ComicsService {
@@ -64,6 +65,17 @@ export class ComicsService {
             totalCount: total,
             hasNextPage: +(total / args.limit).toFixed() > 0,
         };
+    }
+
+    async update(data: UpdateComicInput) {
+        return this.prismaService.comic.update({
+            data: {
+                ...data
+            },
+            where: {
+                id: data.id
+            }
+        })
     }
 
     async create(data: NewComicInput) {

@@ -26,6 +26,7 @@ type ComicEdge {
 
 type Mutation {
   addComic(newComicData: NewComicInput!): Comic!
+  updateComic(updateComicData: UpdateComicInput!): Comic!
 }
 
 input NewComicInput {
@@ -44,4 +45,10 @@ type PaginatedComic {
 type Query {
   comic(id: Float!): Comic!
   comics(limit: Int = 10, offset: Int = 0, title: String): PaginatedComic!
+}
+
+input UpdateComicInput {
+  availabilityStatus: AvailabilityStatus
+  id: Float!
+  price: Float
 }
