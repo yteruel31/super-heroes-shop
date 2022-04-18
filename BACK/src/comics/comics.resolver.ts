@@ -30,4 +30,9 @@ export class ComicsResolver {
     async updateComic(@Args("updateComicData") updateComicData: UpdateComicInput) {
         return this.comicsService.update(updateComicData);
     }
+
+    @Mutation(returns => Comic)
+    async deleteComic(@Args('id') id: number) {
+        return this.comicsService.delete(id);
+    }
 }

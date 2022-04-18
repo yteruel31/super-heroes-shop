@@ -78,6 +78,14 @@ export class ComicsService {
         })
     }
 
+    async delete(id: number) {
+        return this.prismaService.comic.delete({
+            where: {
+                id
+            }
+        })
+    }
+
     async create(data: NewComicInput) {
         const comic = await this.marvelService.findComic(data.idMarvelApi);
         const serie = await this.seriesService.create({idMarvelApi: getResourceId(comic.series.resourceURI, "series")});

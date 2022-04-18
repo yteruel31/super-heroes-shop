@@ -26,7 +26,8 @@ type ComicEdge {
 
 type Mutation {
   addComic(newComicData: NewComicInput!): Comic!
-  updateComic(updateComicData: UpdateComicInput!): Comic!
+    deleteComic(id: Float!): Comic!
+    updateComic(updateComicData: UpdateComicInput!): Comic!
 }
 
 input NewComicInput {
