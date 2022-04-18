@@ -19,6 +19,11 @@ type Comic {
   title: String!
 }
 
+type ComicEdge {
+  cursor: String!
+  node: Comic!
+}
+
 type Mutation {
   addComic(newComicData: NewComicInput!): Comic!
 }
@@ -29,6 +34,14 @@ input NewComicInput {
   price: Float!
 }
 
+type PaginatedComic {
+  edges: [ComicEdge!]
+  hasNextPage: Boolean!
+  nodes: [Comic!]
+  totalCount: Int!
+}
+
 type Query {
   comic(id: Float!): Comic!
+  comics(limit: Int = 10, offset: Int = 0, title: String): PaginatedComic!
 }

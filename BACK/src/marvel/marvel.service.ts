@@ -11,7 +11,7 @@ import {SerieDto} from "./dto/serie.dto";
 @Injectable()
 export class MarvelService {
     private client: AxiosInstance;
-    private hash: string;
+    private readonly hash: string;
 
     constructor(private supabaseService: SupabaseService) {
         this.hash = Md5.hashStr(`1${process.env.MARVEL_API_PRIVATE_KEY}${process.env.MARVEL_API_PUBLIC_KEY}`);
