@@ -21,9 +21,9 @@ export class Comic {
     @Field()
     price: number;
 
-    @Field()
-    rating: number;
+    @Field({nullable: true})
+    rating?: number;
 
     @Field(type => AvailabilityStatus)
-    availability: AvailabilityStatus;
+    availabilityStatus: AvailabilityStatus;
 }

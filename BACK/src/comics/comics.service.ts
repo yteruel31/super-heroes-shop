@@ -16,11 +16,16 @@ export class ComicsService {
     }
 
     async find(id: number) {
-        return this.prismaService.comic.findUnique({
+        const data = await this.prismaService.comic.findUnique({
             where: {
                 id
             }
-        })
+        });
+        const comic = await this.marvelService.findComic(data.idMarvelApi);
+        return {
+            ...comic,
+            ...data,
+        }
     }
 
     async create(data: NewComicInput) {

@@ -9,12 +9,12 @@ enum AvailabilityStatus {
 
 """Comics"""
 type Comic {
-  availability: AvailabilityStatus!
+  availabilityStatus: AvailabilityStatus!
   description: String!
   id: ID!
   pageCount: Float!
   price: Float!
-  rating: Float!
+  rating: Float
   thumbnail: String!
   title: String!
 }
